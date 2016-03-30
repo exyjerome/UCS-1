@@ -25,11 +25,11 @@ namespace UCS.Core.Threading
         {
             T = new Thread(() =>
             {
-                new Gateway().Start();
-                new PacketManager().Start();
-                new MessageManager().Start();
                 new ResourcesManager();
                 new ObjectManager();
+                new PacketManager().Start();
+                new MessageManager().Start();
+                new Gateway().Start();
                 //new ApiManagerPro(ApiManagerPro.SendResponse, "http://+:" + ParseConfigInt("proDebugPort") + "/" + parseConfigString("ApiKey") + "/").Run();
                 //new UCSList();
                 Console.WriteLine("[UCS]    Server started, let's play Clash of Clans!");

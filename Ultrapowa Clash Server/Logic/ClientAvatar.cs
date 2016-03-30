@@ -216,8 +216,37 @@ namespace UCS.Logic
 
             return data.ToArray();
         }
+        public void SetAchievment(AchievementData ad, bool finished)
+        {
+            int index = GetDataIndex(this.Achievements, ad);
+            int value = finished ? 1 : 0;
+            if (index != -1)
+                this.Achievements[index].Value = value;
+            else
+            {
+                var ds = new DataSlot(ad, value);
+                this.Achievements.Add(ds);
+            }
+        }
 
-        public long GetAllianceId()
+       public void AddDiamonds(int diamondCount)
+         {
+             this.m_vCurrentGems += diamondCount;
+         }
+
+        public void AddExperience(int exp)
+        {
+            this.m_vExperience += exp;
+            int experienceCap = ((ExperienceLevelData)ObjectManager.DataTables.GetTable(10).GetDataByName(this.m_vAvatarLevel.ToString())).ExpPoints;
+            if (m_vExperience >= experienceCap)
+            {
+                this.m_vAvatarLevel += 1;
+                m_vExperience = m_vExperience - experienceCap;
+            }
+
+        }
+
+    public long GetAllianceId()
         {
             return m_vAllianceId;
         }

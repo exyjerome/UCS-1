@@ -1,5 +1,4 @@
-﻿using Blake2Sharp;
-using Sodium;
+﻿using Sodium;
 using System;
 using System.Configuration;
 using System.Data.HashFunction;
@@ -8,7 +7,6 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using UCS.Core;
-using UCS.EncryptionTesting;
 using UCS.Helpers;
 using UCS.Logic;
 using UCS.Network;
@@ -148,7 +146,7 @@ namespace UCS.PacketProcessing
                 new Random().NextBytes(tokenSeed);
                 using (SHA1 sha = new SHA1CryptoServiceProvider())
                 {
-                    UserToken = BitConverter.ToString(sha.ComputeHash(tokenSeed)).Replace("-", "");
+                    UserToken = BitConverter.ToString(sha.ComputeHash(tokenSeed)).Replace("-", string.Empty);
                 }
             }
 
@@ -160,7 +158,7 @@ namespace UCS.PacketProcessing
                     p.SetErrorCode(7);
                     p.SetResourceFingerprintData(ObjectManager.FingerPrint.SaveToJson());
                     p.SetContentURL(ConfigurationManager.AppSettings["patchingServer"]);
-                    p.SetUpdateURL("market://details?id=com.supercell.clashofclans"); //<-- Should I also change this to the ConfigurationManager?
+                    p.SetUpdateURL("http://www.ultrapowa.com/client"); //<-- Should I also change this to the ConfigurationManager?
                     PacketManager.ProcessOutgoingPacket(p);
                     return;
                 }
