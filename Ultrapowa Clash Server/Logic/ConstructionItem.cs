@@ -92,7 +92,7 @@ namespace UCS.Logic
             //Add exp to client avatar
             var constructionTime = GetConstructionItemData().GetConstructionTime(GetUpgradeLevel());
             var exp = (int) Math.Pow(constructionTime, 0.5f);
-            //GetLevel().GetPlayerAvatar().AddExperience(exp); --> Add Experience is not implemented
+            GetLevel().GetPlayerAvatar().AddExperience(exp);
 
             //LogicAchievementManager::refreshStatus(v48)
             //LogicLevel::refreshNewShopUnlocksTH(v50)
