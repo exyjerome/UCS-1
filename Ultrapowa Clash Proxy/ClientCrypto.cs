@@ -2,7 +2,6 @@
 using System;
 using System.Linq;
 using System.Net.Sockets;
-using System.Text;
 
 namespace UCP
 {
@@ -34,15 +33,6 @@ namespace UCP
                 state.serverState.nonce = plainText.Take(24).ToArray();
                 state.serverState.sharedKey = plainText.Skip(24).Take(32).ToArray();
                 plainText = plainText.Skip(24).Skip(32).ToArray();
-            }
-            else if (messageId == 24107)
-            {
-                state.serverState.nonce = Utilities.Increment(Utilities.Increment(state.serverState.nonce));
-                plainText = SecretBox.Open(new byte[16].Concat(cipherText).ToArray(), state.serverState.nonce,
-                    state.serverState.sharedKey);
-                Console.WriteLine(messageId);
-                Console.WriteLine(BitConverter.ToString(plainText));
-                Console.WriteLine(Encoding.UTF8.GetString(plainText));
             }
             else
             {

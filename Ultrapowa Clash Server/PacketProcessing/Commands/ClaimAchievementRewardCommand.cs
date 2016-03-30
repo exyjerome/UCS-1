@@ -1,8 +1,5 @@
 ﻿using System.IO;
-using UCS.Core;
-using UCS.GameFiles;
 using UCS.Helpers;
-using UCS.Logic;
 
 namespace UCS.PacketProcessing
 {
@@ -11,23 +8,12 @@ namespace UCS.PacketProcessing
     {
         public ClaimAchievementRewardCommand(BinaryReader br)
         {
-
-            AchievementId = br.ReadInt32WithEndian(); //= achievementId - 0x015EF3C0;
+            /*
+            AchievementId = br.ReadUInt32WithEndian(); //= achievementId - 0x015EF3C0;
             Unknown1 = br.ReadUInt32WithEndian();
-
+            */
         }
-        public int AchievementId { get; set; }
+        public uint AchievementId { get; set; }
         public uint Unknown1 { get; set; }
-
-        public override void Execute(Level level)
-        {
-            ClientAvatar ca = level.GetPlayerAvatar();
-
-            AchievementData ad = (AchievementData)ObjectManager.DataTables.GetDataById(AchievementId);
-
-            ca.AddDiamonds(ad.DiamondReward);
-            ca.AddExperience(ad.ExpReward);
-            ca.SetAchievment(ad, true);
-        }
     }
 }
