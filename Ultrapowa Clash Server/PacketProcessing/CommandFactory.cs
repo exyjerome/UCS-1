@@ -52,7 +52,7 @@ namespace UCS.PacketProcessing
             m_vCommands.Add(533, typeof (MoveMultipleBuildingsCommand));
             m_vCommands.Add(534, typeof (CancelShieldCommand));
             m_vCommands.Add(537, typeof (SendAllianceMailCommand));
-            m_vCommands.Add(539, typeof (Unknown539Command));
+            m_vCommands.Add(539, typeof (NewsSeenCommand));
             m_vCommands.Add(543, typeof (KickAllianceMemberCommand));
             m_vCommands.Add(544, typeof (GetVillageLayoutsCommand));
             m_vCommands.Add(546, typeof (EditVillageLayoutCommand));

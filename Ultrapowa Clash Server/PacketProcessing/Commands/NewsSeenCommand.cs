@@ -7,14 +7,14 @@ using UCS.Logic;
 namespace UCS.PacketProcessing
 {
     //Commande 0x21B
-    internal class Unknown539Command : Command
+    internal class NewsSeenCommand : Command
     {
         public byte[] packet;
-        public Unknown539Command(BinaryReader br)
+        public NewsSeenCommand(BinaryReader br)
         {
             //packet = br.ReadAllBytes();
-            Unknown1 = br.ReadUInt32WithEndian();
-            Unknown2 = br.ReadUInt32WithEndian();
+            //Unknown1 = br.ReadUInt32WithEndian();
+            //Unknown2 = br.ReadUInt32WithEndian();
         }
 
         //00 00 00 02 00 00 02 1B 00 00 00 0C 00 00 00 00 00 00 02 1B 00 00 00 0D 00 00 00 00

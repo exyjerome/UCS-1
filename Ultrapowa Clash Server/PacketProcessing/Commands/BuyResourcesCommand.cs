@@ -14,6 +14,7 @@ namespace UCS.PacketProcessing
         private readonly bool m_vIsCommandEmbedded;
         private readonly int m_vResourceCount;
         private readonly int m_vResourceId;
+        private readonly int Unknown1;
 
         public BuyResourcesCommand(BinaryReader br)
         {
@@ -23,17 +24,17 @@ namespace UCS.PacketProcessing
             if (m_vIsCommandEmbedded)
             {
                 Depth++;
-                Debugger.WriteLine("Depth: " + Depth);
+
                 if (Depth >= MaxEmbeddedDepth)
                     throw new ArgumentException("A command contained embedded command depth was greater than max embedded commands.");
                 m_vCommand = CommandFactory.Read(br);
             }
-            br.ReadInt32WithEndian(); //Unknown1
+            Unknown1 = br.ReadInt32WithEndian();
         }
 
         public override void Execute(Level level)
         {
-            var rd = (ResourceData) ObjectManager.DataTables.GetDataById(m_vResourceId);
+            var rd = (ResourceData)ObjectManager.DataTables.GetDataById(m_vResourceId);
             if (rd != null)
             {
                 if (m_vResourceCount >= 1)
@@ -50,13 +51,14 @@ namespace UCS.PacketProcessing
                                 avatar.UseDiamonds(diamondCost);
                                 avatar.CommodityCountChangeHelper(0, rd, m_vResourceCount);
                                 if (m_vIsCommandEmbedded)
+                                {
                                     Depth++;
 
+                                    if (Depth >= MaxEmbeddedDepth)
+                                        throw new ArgumentException("A command contained embedded command depth was greater than max embedded commands.");
 
-                                if (Depth >= MaxEmbeddedDepth || Depth <= 0)
-                                    throw new ArgumentException("A command contained embedded command depth was greater than max embedded commands.");
-
-                                ((Command) m_vCommand).Execute(level);
+                                    ((Command)m_vCommand).Execute(level);
+                                }
                             }
                         }
                     }

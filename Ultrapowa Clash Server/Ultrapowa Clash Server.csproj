@@ -349,7 +349,7 @@
     <Compile Include="PacketProcessing\Commands\BuyDecoCommand.cs" />
     <Compile Include="PacketProcessing\Commands\CancelUpgradeUnitCommand.cs" />
     <Compile Include="PacketProcessing\Commands\UpgradeMultipleBuildingsCommand.cs" />
-    <Compile Include="PacketProcessing\Commands\Unknown539Command.cs" />
+    <Compile Include="PacketProcessing\Commands\NewsSeenCommand.cs" />
     <Compile Include="PacketProcessing\Commands\MoveMultipleBuildingsCommand.cs" />
     <Compile Include="PacketProcessing\Commands\RequestAllianceUnitsCommand.cs" />
     <Compile Include="PacketProcessing\Commands\BuyTrapCommand.cs" />
