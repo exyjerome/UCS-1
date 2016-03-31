@@ -1,5 +1,7 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using UCS.Helpers;
+using UCS.Logic;
 
 namespace UCS.PacketProcessing
 {
@@ -8,13 +10,19 @@ namespace UCS.PacketProcessing
     {
         public BuyShieldCommand(BinaryReader br)
         {
-            /*
-            ShieldId = br.ReadUInt32WithEndian(); //= shieldId - 0x01312D00;
+            
+            ShieldId = br.ReadInt32WithEndian(); //= shieldId - 0x01312D00;
             Unknown1 = br.ReadUInt32WithEndian();
-            */
+            
+        }
+        public override void Execute(Level level)
+        {
+            Console.WriteLine(ShieldId);
+            Console.WriteLine(Unknown1);
         }
 
-        public uint ShieldId { get; set; }
+        public int ShieldId { get; set; }
         public uint Unknown1 { get; set; }
     }
+
 }

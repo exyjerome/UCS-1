@@ -33,7 +33,6 @@ namespace UCS.PacketProcessing
         public LoginOkMessage(Client client) : base(client)
         {
             SetMessageType(20104);
-            SetMessageVersion(1);
         }
 
         public string Unknown11 { get; set; }
@@ -60,7 +59,8 @@ namespace UCS.PacketProcessing
             pack.AddString((m_vStartupCooldownSeconds.ToString()));
             pack.AddString(m_vAccountCreatedDate);
             pack.AddInt32(0);
-            pack.AddString(m_vGoogleID.ToString());
+            //pack.AddString(m_vGoogleID.ToString()); //Preventing Google login pop up in game
+            pack.AddString(null);                     //Preventing Google login pop up in game
             pack.AddString(m_vCountryCode);
             pack.AddString("someid2");
 

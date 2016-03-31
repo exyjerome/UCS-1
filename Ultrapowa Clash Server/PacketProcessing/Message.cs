@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using UCS.Helpers;
 using UCS.Logic;
+using UCS.Crypto;
 
 namespace UCS.PacketProcessing
 {
@@ -41,16 +42,16 @@ namespace UCS.PacketProcessing
         {
             if (GetMessageType() == 20103)
             {
-                byte[] nonce = GenericHash.Hash(Client.CSNonce.Concat(Client.CPublicKey).Concat(Crypto8.StandardKeyPair.PublicKey).ToArray(), null, 24);
+                byte[] nonce = GenericHash.Hash(Client.CSNonce.Concat(Client.CPublicKey).Concat(Key.Crypto.PublicKey).ToArray(), null, 24);
                 plainText = Client.CRNonce.Concat(Client.CSharedKey).Concat(plainText).ToArray();
-                SetData(PublicKeyBox.Create(plainText, nonce, Crypto8.StandardKeyPair.PrivateKey, Client.CPublicKey));
+                SetData(PublicKeyBox.Create(plainText, nonce, Key.Crypto.PrivateKey, Client.CPublicKey));
                 Client.CState = 0;
             }
             else if (GetMessageType() == 20104)
             {
-                byte[] nonce = GenericHash.Hash(Client.CSNonce.Concat(Client.CPublicKey).Concat(Crypto8.StandardKeyPair.PublicKey).ToArray(), null, 24);
+                byte[] nonce = GenericHash.Hash(Client.CSNonce.Concat(Client.CPublicKey).Concat(Key.Crypto.PublicKey).ToArray(), null, 24);
                 plainText = Client.CRNonce.Concat(Client.CSharedKey).Concat(plainText).ToArray();
-                SetData(PublicKeyBox.Create(plainText, nonce, Crypto8.StandardKeyPair.PrivateKey, Client.CPublicKey));
+                SetData(PublicKeyBox.Create(plainText, nonce, Key.Crypto.PrivateKey, Client.CPublicKey));
                 Client.CState = 2;
             }
             else 
@@ -68,10 +69,10 @@ namespace UCS.PacketProcessing
                     byte[] cipherText = m_vData;
                     Client.CPublicKey = cipherText.Take(32).ToArray();
                     Client.CSharedKey = Client.CPublicKey;
-                    Client.CRNonce = Crypto8.GenerateNonce();
-                    byte[] nonce = GenericHash.Hash(Client.CPublicKey.Concat(Crypto8.StandardKeyPair.PublicKey).ToArray(), null, 24);
+                    Client.CRNonce = Client.GenerateSessionKey();
+                    byte[] nonce = GenericHash.Hash(Client.CPublicKey.Concat(Key.Crypto.PublicKey).ToArray(), null, 24);
                     cipherText = cipherText.Skip(32).ToArray();
-                    var PlainText = PublicKeyBox.Open(cipherText, nonce, Crypto8.StandardKeyPair.PrivateKey, Client.CPublicKey);
+                    var PlainText = PublicKeyBox.Open(cipherText, nonce, Key.Crypto.PrivateKey, Client.CPublicKey);
                     Client.CSessionKey = PlainText.Take(24).ToArray();
                     Client.CSNonce = PlainText.Skip(24).Take(24).ToArray();
                     SetData(PlainText.Skip(24).Skip(24).ToArray());

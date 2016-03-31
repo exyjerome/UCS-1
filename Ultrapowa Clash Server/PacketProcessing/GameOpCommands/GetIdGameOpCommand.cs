@@ -29,7 +29,7 @@ namespace UCS.PacketProcessing
                     mail.SetIsNew(0);
                     mail.SetAllianceId(0);
                     mail.SetAllianceBadgeData(0);
-                    mail.SetAllianceName("Shard Information");
+                    mail.SetAllianceName("UCS Information");
                     mail.SetMessage("Your Player ID: " + level.GetPlayerAvatar().GetId());
                     mail.SetSenderLevel(avatar.GetAvatarLevel());
                     mail.SetSenderLeagueId(avatar.GetLeagueId());

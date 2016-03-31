@@ -12,7 +12,7 @@ namespace UCS.PacketProcessing
         public SessionSuccess(Client client, SessionRequest cka) : base(client)
         {
             SetMessageType(20100);
-            SessionKey = Crypto8.GenerateNonce();
+            SessionKey = Client.GenerateSessionKey();
         }
         
         public override void Encode()
