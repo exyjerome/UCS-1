@@ -7,8 +7,8 @@ namespace UCP
 {
     public class Server : ServerCrypto
     {
-        static readonly ManualResetEvent allDone = new ManualResetEvent(false);
-        readonly int port;
+        private static readonly ManualResetEvent allDone = new ManualResetEvent(false);
+        private readonly int port;
 
         public Server(int port)
         {
@@ -20,7 +20,7 @@ namespace UCP
             allDone.Set();
             try
             {
-                var listener = (Socket) ar.AsyncState;
+                var listener = (Socket)ar.AsyncState;
                 var socket = listener.EndAccept(ar);
 
                 var state = new ServerState

@@ -3,12 +3,12 @@ using System.Reflection;
 
 namespace UCP
 {
-    class Proxy
+    internal class Proxy
     {
         public const string hostname = "gamea.clashofclans.com";
         public const int port = 9339;
 
-        static void Main()
+        private static void Main()
         {
             Console.Title = "Ultrapowa Clash Proxy v" + Assembly.GetExecutingAssembly().GetName().Version;
 

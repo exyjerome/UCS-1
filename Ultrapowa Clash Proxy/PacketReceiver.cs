@@ -4,7 +4,7 @@ using System.Net.Sockets;
 
 namespace UCP
 {
-    class PacketReceiver
+    internal class PacketReceiver
     {
         public static void receive(int bytesReceived, Socket socket, State state)
         {
@@ -25,13 +25,13 @@ namespace UCP
                             state.packet = state.packet.Concat(state.buffer.Skip(bytesRead).Take(bytesNeeded)).ToArray();
                             bytesRead += bytesNeeded;
                             bytesAvailable -= bytesNeeded;
-                            if (state.GetType() == typeof (ClientState))
+                            if (state.GetType() == typeof(ClientState))
                             {
-                                ClientCrypto.DecryptPacket(socket, (ClientState) state, state.packet);
+                                ClientCrypto.DecryptPacket(socket, (ClientState)state, state.packet);
                             }
-                            else if (state.GetType() == typeof (ServerState))
+                            else if (state.GetType() == typeof(ServerState))
                             {
-                                ServerCrypto.DecryptPacket(socket, (ServerState) state, state.packet);
+                                ServerCrypto.DecryptPacket(socket, (ServerState)state, state.packet);
                             }
                             state.packet = new byte[0];
                         }

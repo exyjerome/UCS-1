@@ -2,9 +2,9 @@
 
 namespace UCP
 {
-    class PacketInfos
+    internal class PacketInfos
     {
-        static readonly Dictionary<int, string> knownPackets = new Dictionary<int, string>
+        private static readonly Dictionary<int, string> knownPackets = new Dictionary<int, string>
         {
             {10101, "Login"},
             {10108, "KeepAlive"},

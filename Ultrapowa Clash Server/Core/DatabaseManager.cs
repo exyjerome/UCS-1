@@ -121,7 +121,7 @@ namespace UCS.Core
         {
             long max = 0;
             using (var db = new ucsdbEntities(m_vConnectionString))
-                max = (from alliance in db.clan select (long?) alliance.ClanId ?? 0).DefaultIfEmpty().Max();
+                max = (from alliance in db.clan select (long?)alliance.ClanId ?? 0).DefaultIfEmpty().Max();
             return max;
         }
 
@@ -129,7 +129,7 @@ namespace UCS.Core
         {
             long max = 0;
             using (var db = new ucsdbEntities(m_vConnectionString))
-                max = (from ep in db.player select (long?) ep.PlayerId ?? 0).DefaultIfEmpty().Max();
+                max = (from ep in db.player select (long?)ep.PlayerId ?? 0).DefaultIfEmpty().Max();
             return max;
         }
 
@@ -201,7 +201,7 @@ namespace UCS.Core
                     {
                         lock (alliance)
                         {
-                            var c = context.clan.Find((int) alliance.GetAllianceId());
+                            var c = context.clan.Find((int)alliance.GetAllianceId());
                             if (c != null)
                             {
                                 c.LastUpdateTime = DateTime.Now;

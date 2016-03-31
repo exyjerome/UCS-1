@@ -8,7 +8,7 @@ namespace UCP
         {
             try
             {
-                var state = (State) ar.AsyncState;
+                var state = (State)ar.AsyncState;
                 var socket = state.socket;
                 var bytesReceived = socket.EndReceive(ar);
                 PacketReceiver.receive(bytesReceived, socket, state);
@@ -24,7 +24,7 @@ namespace UCP
         {
             try
             {
-                var state = (State) ar.AsyncState;
+                var state = (State)ar.AsyncState;
                 var socket = state.socket;
                 var bytesSent = socket.EndSend(ar);
             }

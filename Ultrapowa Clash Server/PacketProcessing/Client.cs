@@ -5,7 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using UCS.Logic;
-using UCS.Crypto;
+using UCK;
+
 namespace UCS.PacketProcessing
 {
     internal class Client

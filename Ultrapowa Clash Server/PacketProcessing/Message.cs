@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using UCS.Helpers;
 using UCS.Logic;
-using UCS.Crypto;
+using UCK;
 
 namespace UCS.PacketProcessing
 {

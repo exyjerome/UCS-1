@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>UCS</RootNamespace>
-    <AssemblyName>ucs</AssemblyName>
+    <AssemblyName>Ultrapowa Clash Server</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -488,9 +488,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UCS Crypto Key\UCS Crypto Key.csproj">
+    <ProjectReference Include="..\Ultrapowa Clash KeyGen\Ultrapowa Clash KeyGen.csproj">
       <Project>{04340681-49ed-408d-842c-931c0d424d7f}</Project>
-      <Name>UCS Crypto Key</Name>
+      <Name>Ultrapowa Clash KeyGen</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
