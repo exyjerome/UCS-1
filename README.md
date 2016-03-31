@@ -1,21 +1,21 @@
 # Readme!
-
 This repository contains the Development build of Ultrapowa Clash Server, a C# server emulator for the game Clash of Clans. 
 Keep in mind that this is the version written by the official Developer Team containing.
 
-Ultrapowa									
-Berkan																					
-iSwürfel																
-ADeltaX								
-thecheater887										
+* Ultrapowa									
+* Berkan			
+* iSwürfel
+* ADeltaX								
+* thecheater887										
 
 UCS is NOT affiliated with Supercell, or any other company.
 Help and Support: http://www.ultrapowa.com/forum/
-#Download
-PreBuilt UCS = https://www.dropbox.com/s/30mdmrzmsp83xdd/UCS-0650%28Beta%29.rar?dl=1
-Apk = https://www.dropbox.com/s/hp0x865nldw8lkl/Ultrapowa-UCS.apk?dl=1
-# License
 
+# Download
+* PreBuilt UCS = https://www.dropbox.com/s/30mdmrzmsp83xdd/UCS-0650%28Beta%29.rar?dl=1
+* APK = https://www.dropbox.com/s/hp0x865nldw8lkl/Ultrapowa-UCS.apk?dl=1
+
+# License
 Ultrapowa Clash Server is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
