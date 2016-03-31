@@ -8,12 +8,12 @@ Keep in mind that this is the version written by the official Developer Team con
 * ADeltaX								
 * thecheater887										
 
-UCS is NOT affiliated with Supercell, or any other company.
-Help and Support: http://www.ultrapowa.com/forum/
+-> UCS is NOT affiliated with Supercell, or any other company.
+-> Help and Support: http://bit.ly/UltraPowa
 
 # Download
-* PreBuilt UCS = http://bit.ly/UCS-0650-BETA
-* APK = http://bit.ly/UCS-0650-APK
+* PreBuilt UCS -> http://bit.ly/UCS-0650-BETA
+* APK -> http://bit.ly/UCS-0650-APK
 
 # License
 Ultrapowa Clash Server is free software: you can redistribute it and/or modify
