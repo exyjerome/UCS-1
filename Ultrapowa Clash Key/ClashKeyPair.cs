@@ -56,7 +56,7 @@ namespace UCK
                 if (_disposed)
                     // If the function is already dispoed, we can't access to the key
                     throw new ObjectDisposedException(null, "Cannot access CoCKeyPair object because it was disposed.");
-                
+
                 // We return the public key from the generated keypair
                 return _keyPair.PublicKey;
             }

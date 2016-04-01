@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Text;
 using UCS.Helpers;
 using UCS.Logic;
 using UCS.Network;
@@ -21,6 +23,7 @@ namespace UCS.PacketProcessing
             {
                 LevelId = br.ReadInt32WithEndian();
             }
+            Console.WriteLine(LevelId);
         }
 
         public override void Process(Level level)
@@ -28,11 +31,10 @@ namespace UCS.PacketProcessing
 
             PacketManager.ProcessOutgoingPacket(new OwnHomeDataMessage(level.GetClient(), level));
             var p = new GlobalChatLineMessage(level.GetClient());
-            p.SetChatMessage("Not implemented");
+            p.SetChatMessage("Not implemented " + LevelId);
             p.SetPlayerId(0);
             p.SetPlayerName("Ultrapowa Clash Server");
             PacketManager.ProcessOutgoingPacket(p);
-
             /*
             var san = new NpcDataMessage(Client, level, this);
             PacketManager.ProcessOutgoingPacket(san);

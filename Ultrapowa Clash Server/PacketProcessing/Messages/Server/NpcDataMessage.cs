@@ -15,9 +15,9 @@ namespace UCS.PacketProcessing
         {
             SetMessageType(24133);
             Player = level;
-            JsonBase = ObjectManager.NpcLevels[cnam.LevelId - 0x01700000];
             LevelId = cnam.LevelId;
-            Console.WriteLine("[24133] Level ID = " + (LevelId - 0x01700000));
+            JsonBase = ObjectManager.NpcLevels[cnam.LevelId];
+            Console.WriteLine("[24133] Level ID = " + (LevelId ));
         }
 
         public string JsonBase { get; set; }
