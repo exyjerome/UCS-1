@@ -55,23 +55,14 @@ namespace UCKG
                 }
                 Console.WriteLine("[UCKG]    -> Need other key? Press y or if you want to exit press N");
                 var result = Console.ReadKey();
-                switch (result.KeyChar)
+                switch (Char.ToUpper(result.KeyChar))
                 {
                     case 'Y':
                         Console.Clear();
                         Main();
                         break;
 
-                    case 'y':
-                        Console.Clear();
-                        Main();
-                        break;
-
                     case 'N':
-                        Environment.Exit(0);
-                        break;
-
-                    case 'n':
                         Environment.Exit(0);
                         break;
 
