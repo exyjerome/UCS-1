@@ -15,9 +15,9 @@ namespace UCS.PacketProcessing
         {
             SetMessageType(24133);
             Player = level;
-            JsonBase = ObjectManager.NpcLevels[cnam.LevelId - 0x01036640];
+            JsonBase = ObjectManager.NpcLevels[cnam.LevelId - 0x01700000];
             LevelId = cnam.LevelId;
-            Console.WriteLine("[24133] Level ID = " + (LevelId - 0x01036640));
+            Console.WriteLine("[24133] Level ID = " + (LevelId - 0x01700000));
         }
 
         public string JsonBase { get; set; }
@@ -32,9 +32,11 @@ namespace UCS.PacketProcessing
 
             data.AddInt32(0);
             data.Add(0);
+            data.AddString("true");
             data.AddInt32(JsonBase.Length);
             data.AddRange(Encoding.ASCII.GetBytes(JsonBase));
             data.AddRange(Player.GetPlayerAvatar().Encode());
+            data.AddString("true");
             data.AddInt32(0);
             data.AddInt32(LevelId);
 
