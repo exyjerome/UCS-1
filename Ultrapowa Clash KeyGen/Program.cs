@@ -12,7 +12,7 @@ namespace UCKG
         public static string Name = "Ultrapowa";
         public static string Version = "1.0.0";
         private static string _title, _tmp;
-        private static bool kng = true;
+        private static bool kng;
         private static bool _disposed;
         private static Thread T { get; set; }
 
@@ -43,6 +43,7 @@ namespace UCKG
                   ");
                 Console.WriteLine("[UCKG]    -> This Program is made by the {0} Developer Team!", Name);
                 Console.WriteLine("[UCKG]    -> {0} Key Generator is now generating key..", Name);
+                kng = true;
                 while (kng)
                 {
                     var key = PublicKeyBox.GenerateKeyPair();
