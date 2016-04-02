@@ -27,7 +27,7 @@ namespace UCS.PacketProcessing
         public override void Process(Level level)
         {
             var p = new GlobalChatLineMessage(level.GetClient());
-            p.SetChatMessage("Comming In Next Push!");
+            p.SetChatMessage("Coming In Next Push!");
             p.SetPlayerId(0);
             p.SetPlayerName("Ultrapowa Clash Server");
             PacketManager.ProcessOutgoingPacket(p);
