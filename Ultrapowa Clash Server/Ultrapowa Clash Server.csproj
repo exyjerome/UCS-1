@@ -273,6 +273,7 @@
     <Compile Include="Core\Network\PacketManager.cs" />
     <Compile Include="PacketProcessing\Client.cs" />
     <Compile Include="PacketProcessing\Commands\CancelShieldCommand.cs" />
+    <Compile Include="PacketProcessing\Commands\MyLeagueCommand.cs" />
     <Compile Include="PacketProcessing\Commands\ToggleHeroCommand.cs" />
     <Compile Include="PacketProcessing\Commands\CopyVillageLayoutCommand.cs" />
     <Compile Include="PacketProcessing\Commands\EditVillageLayoutCommand.cs" />
