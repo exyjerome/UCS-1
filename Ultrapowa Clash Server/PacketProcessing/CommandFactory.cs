@@ -66,6 +66,7 @@ namespace UCS.PacketProcessing
             m_vCommands.Add(571, typeof (FilterChatCommand));
             m_vCommands.Add(572, typeof (ToggleHeroAttackModeCommand));
             m_vCommands.Add(600, typeof (PlaceAttackerCommand));
+            m_vCommands.Add(603, typeof (EndOfBattleCommand));
             m_vCommands.Add(604, typeof (CastSpellCommand));
             m_vCommands.Add(700, typeof (SearchOpponentCommand));
             m_vCommands.Add(500000004, typeof (ToggleHeroCommand));

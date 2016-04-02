@@ -80,9 +80,6 @@ namespace UCS.Logic
                     {
                         m_vTimeSinceLastClick = ci.GetLevel().GetTime();
                     }
-                    Debugger.WriteLine(
-                        string.Format("Collect {0} {1}", (int) currentResources, m_vProductionResourceData.GetName()),
-                        null, 5);
 
                     ca.CommodityCountChangeHelper(0, m_vProductionResourceData, (int) currentResources);
                 }
