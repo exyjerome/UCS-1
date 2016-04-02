@@ -12,8 +12,6 @@ namespace UCS.Logic
 
         public ComponentManager(Level l)
         {
-            //m_vComponents = new List<Component>();
-
             m_vComponents = new List<List<Component>>();
             for (var i = 0; i <= 10; i++)
             {

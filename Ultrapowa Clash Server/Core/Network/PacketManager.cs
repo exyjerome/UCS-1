@@ -71,7 +71,7 @@ namespace UCS.Network
                 Message p;
                 while (m_vIncomingPackets.TryDequeue(out p))
                 {
-                    p.Client.Decrypt(p.GetData());
+                    p.GetData();
                     Logger.WriteLine(p, "R");
                     MessageManager.ProcessPacket(p);
                 }
@@ -87,8 +87,6 @@ namespace UCS.Network
                 while (m_vOutgoingPackets.TryDequeue(out p))
                 {
                     Logger.WriteLine(p, "S");
-                    if (p.GetMessageType() != 20100)
-                        p.Client.Encrypt(p.GetData());
 
                     try
                     {

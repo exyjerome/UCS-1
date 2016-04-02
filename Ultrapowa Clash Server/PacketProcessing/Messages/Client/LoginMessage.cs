@@ -1,5 +1,6 @@
 ﻿using Sodium;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data.HashFunction;
 using System.IO;
@@ -82,7 +83,7 @@ namespace UCS.PacketProcessing
                     ClientVersion = reader.ReadString();
                     Client.CState = 1;
                 }
-                //ShowData();
+                ShowData();
             }
             else
                 return;
@@ -90,6 +91,7 @@ namespace UCS.PacketProcessing
 
         public void ShowData()
         {
+            Console.WriteLine("[UCS][10101] Message Version     = " + GetMessageVersion());
             Console.WriteLine("[UCS][10101] User Account ID     = " + UserID);
             Console.WriteLine("[UCS][10101] Master Hash         = " + MasterHash);
             Console.WriteLine("[UCS][10101] Client Version      = " + ClientVersion);
@@ -101,7 +103,6 @@ namespace UCS.PacketProcessing
         {
             if (Client.CState == 0)
                 return;
-
             if (Convert.ToBoolean(ConfigurationManager.AppSettings["maintenanceMode"]))
             {
                 var p = new LoginFailedMessage(Client);

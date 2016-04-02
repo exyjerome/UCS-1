@@ -19,7 +19,8 @@ namespace UCS.Logic
         private long m_vCurrentHomeId;
         private int m_vExperience;
         private long m_vId;
-        private byte m_vIsAvatarNameSet;
+        private byte m_vNameChangingLeft;
+        private byte m_vnameChosenByUser;
         private int m_vLeagueId;
         private int m_vScore;
 
@@ -31,7 +32,7 @@ namespace UCS.Logic
             NpcStars = new List<DataSlot>();
             NpcLootedGold = new List<DataSlot>();
             NpcLootedElixir = new List<DataSlot>();
-            m_vLeagueId = 9;
+            m_vLeagueId = 22;
         }
 
         public ClientAvatar(long id) : this()
@@ -41,7 +42,8 @@ namespace UCS.Logic
             Login = id + ((int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds).ToString();
             m_vId = id;
             m_vCurrentHomeId = id;
-            m_vIsAvatarNameSet = 0x00;
+            m_vnameChosenByUser = 0x00;
+            m_vNameChangingLeft = 0x02;
             m_vAvatarLevel = 1;
             m_vAllianceId = 0;
             m_vExperience = 0;
@@ -80,7 +82,7 @@ namespace UCS.Logic
 
         public uint TutorialStepsCount { get; set; }
 
-        //public uint Region { get; set; }
+        public uint Region { get; set; }
         public Village Village { get; set; }
 
         public byte[] Encode()
@@ -150,7 +152,7 @@ namespace UCS.Logic
             data.Add(1);
             data.AddInt64(0);
 
-            data.Add(m_vIsAvatarNameSet);
+            data.Add(m_vnameChosenByUser);
 
             data.AddInt32(0);
             data.AddInt32(0);
@@ -331,7 +333,8 @@ namespace UCS.Logic
             m_vExperience = jsonObject["experience"].ToObject<int>();
             m_vCurrentGems = jsonObject["current_gems"].ToObject<int>();
             m_vScore = jsonObject["score"].ToObject<int>();
-            m_vIsAvatarNameSet = jsonObject["is_avatar_name_set"].ToObject<byte>();
+            m_vNameChangingLeft = jsonObject["nameChangesLeft"].ToObject<byte>();
+            m_vnameChosenByUser = jsonObject["nameChosenByUser"].ToObject<byte>();
 
             /*JArray jsonMaxResources = (JArray)jsonObject["max_resources"];
             foreach (JObject resource in jsonMaxResources)
@@ -482,7 +485,8 @@ namespace UCS.Logic
             jsonData.Add("experience", m_vExperience);
             jsonData.Add("current_gems", m_vCurrentGems);
             jsonData.Add("score", m_vScore);
-            jsonData.Add("is_avatar_name_set", (ushort)m_vIsAvatarNameSet);
+            jsonData.Add("nameChangesLeft", m_vNameChangingLeft);
+            jsonData.Add("nameChosenByUser", (ushort)m_vnameChosenByUser);
 
             /*JArray jsonResourceCapsArray = new JArray();
             foreach (var resource in GetResourceCaps())
@@ -588,7 +592,8 @@ namespace UCS.Logic
         public void SetName(string name)
         {
             m_vAvatarName = name;
-            m_vIsAvatarNameSet = 0x01;
+            m_vnameChosenByUser = 0x01;
+            m_vNameChangingLeft = 0x01;
             TutorialStepsCount = 0x0D;
         }
 

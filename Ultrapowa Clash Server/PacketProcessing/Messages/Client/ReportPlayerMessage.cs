@@ -18,7 +18,6 @@ namespace UCS.PacketProcessing
         {
             using (var br = new BinaryReader(new MemoryStream(GetData())))
             {
-                Console.WriteLine(br.ReadInt32());
             }
         }
 

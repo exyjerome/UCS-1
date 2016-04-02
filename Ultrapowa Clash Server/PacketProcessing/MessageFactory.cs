@@ -18,7 +18,7 @@ namespace UCS.PacketProcessing
             m_vMessages.Add(10117, typeof (ReportPlayerMessage));
             m_vMessages.Add(10113, typeof (GetDeviceTokenMessage));
             m_vMessages.Add(10212, typeof (ChangeAvatarNameMessage));
-            m_vMessages.Add(14101, typeof (GoHomeMessage));                 //<-- Wasn't able to test because visiting does not work
+            m_vMessages.Add(14101, typeof (GoHomeMessage));
             m_vMessages.Add(14102, typeof (ExecuteCommandsMessage));
             m_vMessages.Add(14113, typeof (VisitHomeMessage));
             m_vMessages.Add(14134, typeof (AttackNpcMessage));

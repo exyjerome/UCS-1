@@ -396,6 +396,7 @@
     <Compile Include="PacketProcessing\Messages\Server\AvatarStreamMessage.cs" />
     <Compile Include="PacketProcessing\Messages\Server\BookmarksListMessage.cs" />
     <Compile Include="PacketProcessing\Messages\Server\DisconnectedMessage.cs" />
+    <Compile Include="PacketProcessing\Messages\Server\LoginFailedMessage 7.cs" />
     <Compile Include="PacketProcessing\Messages\Server\SessionSuccess.cs" />
     <Compile Include="PacketProcessing\Messages\Server\HomeBattleReplayDataMessage.cs" />
     <Compile Include="PacketProcessing\Messages\Server\OutOfSyncMessage.cs" />
@@ -482,12 +483,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icone-ucs.ico" />
-    <Content Include="libsodium-64.dll">
+    <EmbeddedResource Include="libsodium-64.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="libsodium.dll">
+    </EmbeddedResource>
+    <EmbeddedResource Include="libsodium.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Ultrapowa Clash Key\Ultrapowa Clash Key.csproj">
