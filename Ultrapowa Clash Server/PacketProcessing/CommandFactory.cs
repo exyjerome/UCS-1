@@ -62,6 +62,7 @@ namespace UCS.PacketProcessing
             m_vCommands.Add(552, typeof (SaveVillageLayoutCommand));
             m_vCommands.Add(567, typeof (SetActiveVillageLayoutCommand));
             m_vCommands.Add(568, typeof (CopyVillageLayoutCommand));
+            m_vCommands.Add(570, typeof (TogglePlayerWarStateCommand));
             m_vCommands.Add(571, typeof (FilterChatCommand));
             m_vCommands.Add(572, typeof (ToggleHeroAttackModeCommand));
             m_vCommands.Add(600, typeof (PlaceAttackerCommand));
