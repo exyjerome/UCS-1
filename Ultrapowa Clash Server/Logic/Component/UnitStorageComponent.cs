@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using UCS.Core;
 using UCS.GameFiles;
@@ -153,7 +154,12 @@ namespace UCS.Logic
 
         public override void Load(JObject jsonObject)
         {
-            IsSpellForge = jsonObject["storage_type"].ToObject<int>() == 1;
+            /* var UnitProdObject = jsonObject["unit_prod"];
+            if (UnitProdObject != null)
+                IsSpellForge = (int) UnitProdObject["unit_type"] == 1;
+            else
+                IsSpellForge = false; */
+
             var unitArray = (JArray) jsonObject["units"];
             if (unitArray != null)
             {
@@ -167,6 +173,11 @@ namespace UCS.Logic
                     }
                 }
             }
+
+            if (jsonObject["storage_type"] != null)
+                IsSpellForge = (int)jsonObject["storage_type"] == 1;
+            else
+                IsSpellForge = false;
         }
 
         public void RemoveUnits(CombatItemData cd, int count)
@@ -177,11 +188,7 @@ namespace UCS.Logic
         public void RemoveUnitsImpl(CombatItemData cd, int level, int count)
         {
             var unitIndex = GetUnitTypeIndex(cd, level);
-            if (unitIndex == -1)
-            {
-                //Do nothing, should be empty yet
-            }
-            else
+            if (unitIndex != -1)
             {
                 var us = m_vUnits[unitIndex];
                 if (us.Count <= count)
@@ -200,7 +207,6 @@ namespace UCS.Logic
 
         public override JObject Save(JObject jsonObject)
         {
-            //{"data":1000000,"lvl":7,"x":10,"y":35,"units":[[4000005,11],[4000000,1],[4000001,1]],"storage_type":0,"l1x":10,"l1y":35}
 
             var unitJsonArray = new JArray();
             if (m_vUnits.Count > 0)
@@ -220,6 +226,15 @@ namespace UCS.Logic
             else
                 jsonObject.Add("storage_type", 0);
 
+            /*
+            var stype = new JObject();
+            if (IsSpellForge)
+                stype.Add("unit_type", 1);
+            else
+                stype.Add("unit_type", 0);
+
+            jsonObject.Add("unit_prod", (JObject) stype); */
+            
             return jsonObject;
         }
 

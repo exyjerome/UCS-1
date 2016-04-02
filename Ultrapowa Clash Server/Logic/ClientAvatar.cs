@@ -38,7 +38,7 @@ namespace UCS.Logic
         {
             var rnd = new Random();
             LastUpdate = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
-            Login = id + ((int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds).ToString();
+            Login = id.ToString() + (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
             m_vId = id;
             m_vCurrentHomeId = id;
             m_vIsAvatarNameSet = 0x00;

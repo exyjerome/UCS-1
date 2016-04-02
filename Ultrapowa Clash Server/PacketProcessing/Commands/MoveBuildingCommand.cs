@@ -24,7 +24,6 @@ namespace UCS.PacketProcessing
 
         public int X { get; set; } //00 00 00 13
         public int Y { get; set; } //00 00 00 1F
-        //00 00 2D 7F some client tick
 
         public override void Execute(Level level)
         {
