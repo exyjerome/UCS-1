@@ -397,7 +397,6 @@
     <Compile Include="PacketProcessing\Messages\Server\AvatarStreamMessage.cs" />
     <Compile Include="PacketProcessing\Messages\Server\BookmarksListMessage.cs" />
     <Compile Include="PacketProcessing\Messages\Server\DisconnectedMessage.cs" />
-    <Compile Include="PacketProcessing\Messages\Server\LoginFailedMessage 7.cs" />
     <Compile Include="PacketProcessing\Messages\Server\SessionSuccess.cs" />
     <Compile Include="PacketProcessing\Messages\Server\HomeBattleReplayDataMessage.cs" />
     <Compile Include="PacketProcessing\Messages\Server\OutOfSyncMessage.cs" />
