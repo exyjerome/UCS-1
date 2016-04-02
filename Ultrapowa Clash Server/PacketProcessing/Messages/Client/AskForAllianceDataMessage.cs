@@ -26,7 +26,6 @@ namespace UCS.PacketProcessing
 
         public override void Process(Level level)
         {
-            PacketManager.ProcessOutgoingPacket(new OwnHomeDataMessage(level.GetClient(), level));
             var p = new GlobalChatLineMessage(level.GetClient());
             p.SetChatMessage("Comming In Next Push!");
             p.SetPlayerId(0);
