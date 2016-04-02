@@ -33,14 +33,14 @@ namespace UCS.PacketProcessing
             p.SetPlayerId(0);
             p.SetPlayerName("Ultrapowa Clash Server");
             PacketManager.ProcessOutgoingPacket(p);
-            /*
+            
             var targetLevel = ResourcesManager.GetPlayer(AvatarId);
             targetLevel.Tick();
             //Clan clan;
             PacketManager.ProcessOutgoingPacket(new VisitedHomeDataMessage(Client, targetLevel, level));
-            //if (clan != null)
+            //if (clan != null)*/
             //    PacketHandler.ProcessOutgoingPacket(new ServerAllianceChatHistory(this.Client, clan));
-            */
+            
         }
     }
 }

@@ -28,7 +28,11 @@ namespace UCS.PacketProcessing
 
 
             pack.AddRange(new byte[] {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00});
-
+            pack.AddInt32(0);
+            pack.AddInt32(0);
+            pack.AddInt64(1454783074000);
+            pack.AddInt64(1454783074000);
+            pack.AddInt64(1454783074000);
             Encrypt8(pack.ToArray());
         }
 

@@ -28,7 +28,7 @@ namespace UCS.PacketProcessing
         {
             PacketManager.ProcessOutgoingPacket(new OwnHomeDataMessage(level.GetClient(), level));
             var p = new GlobalChatLineMessage(level.GetClient());
-            p.SetChatMessage("Not implemented");
+            p.SetChatMessage("Comming In Next Push!");
             p.SetPlayerId(0);
             p.SetPlayerName("Ultrapowa Clash Server");
             PacketManager.ProcessOutgoingPacket(p);
