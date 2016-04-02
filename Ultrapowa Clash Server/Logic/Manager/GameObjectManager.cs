@@ -150,7 +150,7 @@ namespace UCS.Logic
             }
             jsonData.Add("decos", jsonDecosArray);
 
-            
+            /*
             var jsonRespawnObject = new JObject();
             jsonRespawnObject.Add("secondsFromLastRespawn", 195);
             jsonRespawnObject.Add("respawnSeed", -212853765);
@@ -183,8 +183,8 @@ namespace UCS.Logic
             jsonData.Add("war_base", false);
             jsonData.Add("help_opened", false);
             jsonData.Add("bool_layout_edit_shown_erase", false);
-            
-            
+            */
+            jsonData.Add("last_news_seen", 99999);
             return jsonData;
         }
 

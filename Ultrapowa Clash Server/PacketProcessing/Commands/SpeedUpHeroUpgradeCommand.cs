@@ -11,14 +11,14 @@ namespace UCS.PacketProcessing
 
         public SpeedUpHeroUpgradeCommand(BinaryReader br)
         {
-            /*
+            
             m_vBuildingId = br.ReadInt32WithEndian(); //buildingId - 0x1DCD6500;
             m_vUnknown1 = br.ReadInt32WithEndian();
-            */
+            
         }
         public override void Execute(Level level)
         {
-            /*
+            
             var ca = level.GetPlayerAvatar();
             var go = level.GameObjectManager.GetGameObjectByID(m_vBuildingId);
 
@@ -29,7 +29,7 @@ namespace UCS.PacketProcessing
                 if (hbc != null)
                     hbc.SpeedUpUpgrade();
             }
-            */
+            
         }
     }
 }
