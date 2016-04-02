@@ -87,6 +87,7 @@ namespace UCS.Logic
         {
             var data = new List<byte>();
 
+            data.AddInt32(0);
             data.AddInt64(m_vId);
             data.AddInt64(m_vCurrentHomeId);
             if (m_vAllianceId != 0)
@@ -206,13 +207,6 @@ namespace UCS.Logic
             data.AddDataSlots(new List<DataSlot>());
             data.AddDataSlots(new List<DataSlot>());
             data.AddDataSlots(new List<DataSlot>());
-
-            //7.65
-            data.AddInt32(0);
-            data.AddInt32(0);
-            data.AddInt64(1454783074000);
-            data.AddInt64(1454783074000);
-            data.AddInt64(1454783074000);
 
             return data.ToArray();
         }

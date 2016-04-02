@@ -31,12 +31,9 @@ namespace UCS.PacketProcessing
             var data = new List<byte>();
 
             data.AddInt32(0);
-            data.Add(0);
-            data.AddString("true");
             data.AddInt32(JsonBase.Length);
             data.AddRange(Encoding.ASCII.GetBytes(JsonBase));
             data.AddRange(Player.GetPlayerAvatar().Encode());
-            data.AddString("true");
             data.AddInt32(0);
             data.AddInt32(LevelId);
 

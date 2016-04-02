@@ -36,7 +36,6 @@ namespace UCS.Logic
                  0xFF, 0xFF, 0x00, 0x00
             });
             data.AddRange(m_vSerializedVillage);
-            data.AddInt32(0);
 
             return data.ToArray();
         }

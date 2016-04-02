@@ -43,6 +43,12 @@ namespace UCS.PacketProcessing
 
             data.AddRange(Avatar.Encode());
 
+            data.AddInt32(0);
+            data.AddInt32(0);
+            data.AddInt64(1454783074000);
+            data.AddInt64(1454783074000);
+            data.AddInt64(1454783074000);
+
             Encrypt8(data.ToArray());
 
         }
